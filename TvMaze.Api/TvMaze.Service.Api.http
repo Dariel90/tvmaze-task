@@ -1,4 +1,4 @@
-@TvMaze.Api_HostAddress = https://localhost:7000
+@TvMaze.Api_HostAddress = http://localhost:5000
 
 //Get the show data from the TvMaze Api
 GET {{TvMaze.Api_HostAddress}}/shows/20
