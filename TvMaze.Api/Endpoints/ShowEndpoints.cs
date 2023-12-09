@@ -1,9 +1,7 @@
 ﻿using MediatR;
-using System.Reflection;
 using TvMaze.Application.Shows;
 using TvMaze.Application.Shows.Create;
 using TvMaze.Application.Shows.GetBySysId;
-using TvMaze.Domain.Shows;
 using TvMaze.Infrastructure.Providers;
 using TvMaze.Service.Api.Extensions;
 using TvMaze.Service.Api.Filters;
@@ -30,8 +28,10 @@ public static class ShowEndpoints
 
             if (content == null)
                 return Results.NotFound(content);
+
             var command = new CreateShowCommand(content);
             Result<Guid> result = await sender.Send(command);
+
             return result.IsSuccess ? Results.Ok(result.Value) : result.ToProblemDetails();
         }).AddEndpointFilter<ApiKeyEndpointFilter>();
 

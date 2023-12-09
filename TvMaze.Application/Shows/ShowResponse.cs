@@ -40,8 +40,15 @@ public sealed record ShowNetworkResponse
 {
     public int Id { get; set; }
     public string? Name { get; set; }
-    public Country? Country { get; set; }
+    public ShowNetworkCountryResponse? Country { get; set; }
     public string? OfficialSite { get; set; }
+}
+
+public sealed record ShowNetworkCountryResponse
+{
+    public string? Name { get; set; }
+    public string? Code { get; set; }
+    public string? Timezone { get; set; }
 }
 
 public sealed record ShowExternalsResponse

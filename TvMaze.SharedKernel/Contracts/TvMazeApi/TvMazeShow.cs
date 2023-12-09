@@ -1,83 +1,83 @@
 ﻿namespace TvMaze.SharedKernel.Contracts.TvMazeApi;
 
-public record TvMazeShow
-(
-    int id,
-    string url,
-    string name,
-    string type,
-    string language,
-    string[] genres,
-    string status,
-    int runtime,
-    int averageRuntime,
-    string premiered,
-    string ended,
-    string officialSite,
-    Schedule schedule,
-    Rating rating,
-    int weight,
-    Network network,
-    object webChannel,
-    object dvdCountry,
-    Externals externals,
-    Image image,
-    string summary,
-    int updated,
-    Links _links
-);
+public sealed class TvMazeShow
+{
+    public int id { get; set; }
+    public string url { get; set; }
+    public string name { get; set; }
+    public string type { get; set; }
+    public string language { get; set; }
+    public string[] genres { get; set; }
+    public string status { get; set; }
+    public int runtime { get; set; }
+    public int averageRuntime { get; set; }
+    public string premiered { get; set; }
+    public string ended { get; set; }
+    public string officialSite { get; set; }
+    public Schedule schedule { get; set; }
+    public Rating rating { get; set; }
+    public int weight { get; set; }
+    public Network network { get; set; }
+    public object webChannel { get; set; }
+    public object dvdCountry { get; set; }
+    public Externals externals { get; set; }
+    public Image image { get; set; }
+    public string summary { get; set; }
+    public int updated { get; set; }
+    public Links _links { get; set; }
+}
 
-public record Schedule
-(
-    string time,
-    string[] days
-);
+public sealed class Schedule
+{
+    public string time { get; set; }
+    public string[] days { get; set; }
+};
 
-public record Rating
-(
-    decimal average
-);
+public sealed class Rating
+{
+    public decimal average { get; set; }
+};
 
-public record Network
-(
-    int id,
-    string name,
-    Country country,
-    string officialSite
-);
+public sealed class Network
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public Country country { get; set; }
+    public string officialSite { get; set; }
+}
 
-public record Country
-(
-    string name,
-    string code,
-    string timezone
-);
+public sealed class Country
+{
+    public string name { get; set; }
+    public string code { get; set; }
+    public string timezone { get; set; }
+}
 
-public record Externals
-(
-    int tvrage,
-    int thetvdb,
-    string imdb
-);
+public sealed class Externals
+{
+    public int tvrage { get; set; }
+    public int thetvdb { get; set; }
+    public string imdb { get; set; }
+}
 
-public record Image
-(
-    string medium,
-    string original
-);
+public sealed class Image
+{
+    public string medium { get; set; }
+    public string original { get; set; }
+}
 
-public record Links
-(
-    Self self,
-    Previousepisode previousepisode
-);
+public sealed class Links
+{
+    public Self self { get; set; }
+    public Previousepisode previousepisode { get; set; }
+}
 
-public record Self
-(
-    string href
-);
+public sealed class Self
+{
+    public string href { get; set; }
+}
 
-public record Previousepisode
-(
-    string href
-);
+public sealed class Previousepisode
+{
+    public string href { get; set; }
+}

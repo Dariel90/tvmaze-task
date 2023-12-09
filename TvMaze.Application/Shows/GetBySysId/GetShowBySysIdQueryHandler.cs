@@ -2,7 +2,6 @@
 using TvMaze.Application.Abstractions.Data;
 using TvMaze.Application.Messaging;
 using TvMaze.Domain.Shows;
-using TvMaze.SharedKernel.Contracts.TvMazeApi;
 using TvMaze.SharedKernel.Core;
 
 namespace TvMaze.Application.Shows.GetBySysId;
@@ -65,7 +64,12 @@ internal sealed class GetShowBySysIdQueryHandler : IQueryHandler<GetShowBySysIdQ
                 Id = show.Network.Id,
                 Name = show.Network.Name,
                 OfficialSite = show.Network.OfficialSite,
-                Country = new Country(show.Network.Country.Name, show.Network.Country.Code, show.Network.Country.Timezone)
+                Country = new ShowNetworkCountryResponse
+                {
+                    Code = show.Network.Country.Code,
+                    Name = show.Network.Country.Name,
+                    Timezone = show.Network.Country.Timezone
+                }
             },
             Schedule = new ShowScheduleResponse
             {
