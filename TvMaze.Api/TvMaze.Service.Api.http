@@ -1,0 +1,22 @@
+@TvMaze.Api_HostAddress = https://localhost:7000
+
+//Get the show data from the TvMaze Api
+GET {{TvMaze.Api_HostAddress}}/shows/20
+Accept: application/json
+###
+
+//Gets TV show data from TvMaze Api and saves it to current app database
+POST {{TvMaze.Api_HostAddress}}/api/shows/30/create
+Accept: application/json
+Api_Key: yVNiVKGGflWUGryY
+###
+
+// Get the TV show data from the app's database using the internal guid
+//generated in the app to distinguish it from the TvMaze API ID
+GET {{TvMaze.Api_HostAddress}}/api/shows/632b8718-db72-429d-a470-d08137d11e9c
+
+###
+// Get the health status of the TvMaze API endpoint as well as the current
+//API database
+GET {{TvMaze.Api_HostAddress}}/healthz/extended
+###
