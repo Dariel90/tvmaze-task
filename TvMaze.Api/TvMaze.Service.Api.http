@@ -18,5 +18,5 @@ GET {{TvMaze.Api_HostAddress}}/api/shows/632b8718-db72-429d-a470-d08137d11e9c
 ###
 // Get the health status of the TvMaze API endpoint as well as the current
 //API database
-GET {{TvMaze.Api_HostAddress}}/healthz/extended
+GET {{TvMaze.Api_HostAddress}}/health
 ###

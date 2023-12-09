@@ -67,7 +67,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapHealthChecksUI();
 });
 
-app.UseHealthChecks("/healthz/extended", new HealthCheckOptions
+app.UseHealthChecks("/health", new HealthCheckOptions
 {
     Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
