@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "6e495d4a-03b0-424c-8134-2eae70781acf",
+		"name": "TvMaze-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5850166"
+	},
+	"item": [
+		{
+			"name": "Get Show Data From TvMaze API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7000/shows/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"shows",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Show Data To Database",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api_Key",
+						"value": "yVNiVKGGflWUGryY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7000/api/shows/2/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"shows",
+						"2",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Show Data From DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7000/api/shows/0c599304-1c66-44b8-b5c0-865a50c3c0d3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"shows",
+						"0c599304-1c66-44b8-b5c0-865a50c3c0d3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7000/health",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
