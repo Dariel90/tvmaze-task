@@ -3,17 +3,10 @@ using TvMaze.SharedKernel.Contracts.TvMazeApi;
 
 namespace TvMaze.Infrastructure.Providers;
 
-public class TvMazeApiServiceProvider
+public class TvMazeApiServiceProvider(HttpClient client)
 {
-    private readonly HttpClient _client;
-
-    public TvMazeApiServiceProvider(HttpClient client)
-    {
-        _client = client;
-    }
-
     public Task<TvMazeShow?> GetTvMazeShowDataAsync(int showId, CancellationToken cancellationToken = default)
     {
-        return _client.GetFromJsonAsync<TvMazeShow>($"shows/{showId}", cancellationToken);
+        return client.GetFromJsonAsync<TvMazeShow>($"shows/{showId}", cancellationToken);
     }
 }

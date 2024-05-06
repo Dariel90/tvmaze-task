@@ -6,18 +6,12 @@ using TvMaze.SharedKernel.Core;
 
 namespace TvMaze.Application.Shows.GetBySysId;
 
-internal sealed class GetShowBySysIdQueryHandler : IQueryHandler<GetShowBySysIdQuery, ShowResponse>
+internal sealed class GetShowBySysIdQueryHandler(IApplicationDbContext dbContext)
+    : IQueryHandler<GetShowBySysIdQuery, ShowResponse>
 {
-    private readonly IApplicationDbContext _dbContext;
-
-    public GetShowBySysIdQueryHandler(IApplicationDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
     public async Task<Result<ShowResponse>> Handle(GetShowBySysIdQuery query, CancellationToken cancellationToken)
     {
-        ShowResponse? showResponse = await _dbContext.Shows
+        ShowResponse? showResponse = await dbContext.Shows
             .Include(s => s.Genres)
             .Include(s => s.Schedules)
             .Include(s => s.Network)

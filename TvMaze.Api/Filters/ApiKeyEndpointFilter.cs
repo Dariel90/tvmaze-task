@@ -2,18 +2,11 @@
 
 namespace TvMaze.Service.Api.Filters;
 
-public class ApiKeyEndpointFilter : IEndpointFilter
+public class ApiKeyEndpointFilter(ILoggerFactory loggerFactory, IConfiguration configuration) : IEndpointFilter
 {
     private const string API_KEY = "Api_Key";
 
-    private ILogger<ApiKeyEndpointFilter> _logger;
-    private readonly IConfiguration _configuration;
-
-    public ApiKeyEndpointFilter(ILoggerFactory loggerFactory, IConfiguration configuration)
-    {
-        _logger = loggerFactory.CreateLogger<ApiKeyEndpointFilter>();
-        _configuration = configuration;
-    }
+    private ILogger<ApiKeyEndpointFilter> _logger = loggerFactory.CreateLogger<ApiKeyEndpointFilter>();
 
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext efiContext,
         EndpointFilterDelegate next)
@@ -29,7 +22,7 @@ public class ApiKeyEndpointFilter : IEndpointFilter
             });
         }
 
-        string? apiKeyValue = _configuration.GetSection(API_KEY).Value;
+        string? apiKeyValue = configuration.GetSection(API_KEY).Value;
 
         if (apiKeyValue is null || !apiKeyValue.Equals(apiKeyFromHttpHeader))
         {

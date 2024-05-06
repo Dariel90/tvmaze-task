@@ -2,17 +2,10 @@
 
 namespace TvMaze.Persistence;
 
-internal sealed class UnitOfWork : IUnitOfWork
+internal sealed class UnitOfWork(ApplicationDbContext dbContext) : IUnitOfWork
 {
-    private readonly ApplicationDbContext dbContext;
-
-    public UnitOfWork(ApplicationDbContext dbContext)
-    {
-        this.dbContext = dbContext;
-    }
-
     public Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        return this.dbContext.SaveChangesAsync(cancellationToken);
+        return dbContext.SaveChangesAsync(cancellationToken);
     }
 }

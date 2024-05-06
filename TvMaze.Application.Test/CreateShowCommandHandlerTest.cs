@@ -11,14 +11,8 @@ namespace TvMaze.Application.UnitTest;
 
 public class CreateShowCommandHandlerTest
 {
-    private readonly Mock<IShowRepository> _showRepositoryMock;
-    private readonly Mock<IUnitOfWork> _unitOfWorkMock;
-
-    public CreateShowCommandHandlerTest()
-    {
-        _showRepositoryMock = new();
-        _unitOfWorkMock = new();
-    }
+    private readonly Mock<IShowRepository> _showRepositoryMock = new();
+    private readonly Mock<IUnitOfWork> _unitOfWorkMock = new();
 
     [Fact]
     public async Task Handle_Should_ReturnSuccessResult_WhenTheShowNotExistsInDb()
